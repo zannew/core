@@ -3,16 +3,16 @@ package hellospring.core;
 import hellospring.core.member.Grade;
 import hellospring.core.member.Member;
 import hellospring.core.member.MemberService;
-import hellospring.core.member.MemberServiceImpl;
 import hellospring.core.order.Order;
 import hellospring.core.order.OrderService;
-import hellospring.core.order.OrderServiceImpl;
 
 public class OrderApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
