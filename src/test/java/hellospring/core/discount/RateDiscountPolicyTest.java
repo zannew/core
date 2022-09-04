@@ -1,8 +1,10 @@
 package hellospring.core.discount;
 
+import hellospring.core.AppConfig;
 import hellospring.core.member.Grade;
 import hellospring.core.member.Member;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
