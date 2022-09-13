@@ -1,10 +1,8 @@
 package hellospring.core.order;
 
 import hellospring.core.discount.DiscountPolicy;
-import hellospring.core.discount.FixDiscountPolicy;
 import hellospring.core.member.Member;
 import hellospring.core.member.MemberRepository;
-import hellospring.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 
