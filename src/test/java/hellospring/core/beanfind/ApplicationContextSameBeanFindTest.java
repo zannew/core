@@ -1,7 +1,10 @@
 package hellospring.core.beanfind;
 
-import hellospring.core.member.MemberRepository;
-import hellospring.core.member.MemoryMemberRepository;
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Map;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
@@ -9,10 +12,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Map;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import hellospring.core.member.MemberRepository;
+import hellospring.core.member.MemoryMemberRepository;
 
 class ApplicationContextSameBeanFindTest {
 
@@ -27,7 +28,7 @@ class ApplicationContextSameBeanFindTest {
     @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 성공")
     @Test
     void findBeanByName() {
-        MemberRepository memberRepository = ac.getBean("memberRepository", MemberRepository.class);
+        MemberRepository memberRepository = ac.getBean("memberRepository1", MemberRepository.class);
         assertThat(memberRepository).isInstanceOf(MemberRepository.class);
     }
 
