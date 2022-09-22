@@ -3,11 +3,11 @@ package hellospring.core.order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import hellospring.core.annotation.MainDiscountPolicy;
 import hellospring.core.discount.DiscountPolicy;
 import hellospring.core.member.Member;
 import hellospring.core.member.MemberRepository;
 
-// @RequiredArgsConstructor
 @Component
 public class OrderServiceImpl implements OrderService {
 
@@ -15,7 +15,7 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
