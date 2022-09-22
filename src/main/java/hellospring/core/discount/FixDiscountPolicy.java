@@ -1,18 +1,20 @@
 package hellospring.core.discount;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import hellospring.core.member.Grade;
 import hellospring.core.member.Member;
 
 @Component
+@Qualifier("fixDiscountPolicy")
 public class FixDiscountPolicy implements DiscountPolicy {
 
-    private int dicsountFixAmount = 1000;
+    private int discountFixAmount = 1000;
     @Override
     public int discount(Member member, int price) {
         if (member.getGrade() == Grade.VIP) {
-            return dicsountFixAmount;
+            return discountFixAmount;
         }
         return 0;
     }
