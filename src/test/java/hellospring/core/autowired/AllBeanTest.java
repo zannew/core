@@ -1,6 +1,5 @@
 package hellospring.core.autowired;
 
-
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
