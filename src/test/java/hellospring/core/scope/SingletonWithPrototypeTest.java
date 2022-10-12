@@ -25,8 +25,6 @@ public class SingletonWithPrototypeTest {
 
 	}
 
-
-
 	@Scope("prototype")
 	static class PrototypeBean {
 		private int count = 0;
@@ -66,11 +64,27 @@ public class SingletonWithPrototypeTest {
 
 	@Scope("singleton")
 	static class ClientBean {
-		// ClientBean 생성 시점에 PrototypeBean 주압
+		// ClientBean 생성 시점에 PrototypeBean 주압 x01
 		private final PrototypeBean prototypeBean;
 
 		@Autowired
 		public ClientBean(PrototypeBean prototypeBean) {
+			this.prototypeBean = prototypeBean;
+		}
+
+		public int logic() {
+			prototypeBean.addCount();
+			return prototypeBean.getCount();
+		}
+	}
+
+	@Scope("singleton")
+	static class ClientBean2 {
+		// ClientBean 생성 시점에 PrototypeBean 주압 x02
+		private final PrototypeBean prototypeBean;
+
+		@Autowired
+		public ClientBean2(PrototypeBean prototypeBean) {
 			this.prototypeBean = prototypeBean;
 		}
 
